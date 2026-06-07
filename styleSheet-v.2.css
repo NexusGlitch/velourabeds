@@ -1,0 +1,1551 @@
+/* ========================
+HEADING
+======================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,sans-serif;
+    background:#f8f5f0;
+    color:#1f1f1f;
+    line-height:1.6;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:94%;
+    max-width:1600px;
+    margin:auto;
+}
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    transition:.3s ease;    
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.534) 0%, rgba(0, 0, 0, 0.13) 50%); /* ADD THIS: A subtle dark gradient from the top down */
+}
+
+/* Ensure the scrolled state is solid enough */
+header.scrolled {
+    background: rgba(0, 0, 0, 0.85); /* Slightly darker for better contrast */
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/*
+header.scrolled{
+    background:rgba(0, 0, 0, 0.705);
+    backdrop-filter:blur(5px);
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+} */
+
+header.scrolled nav{
+    padding: 16px 0;
+}
+
+/* ========================
+LOGO ABOVE NAVBAR
+======================== */
+
+/* .logo{
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+    font-weight:700;
+    color:white;
+    transition:.3s;
+} */
+
+.logo{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    color:white;
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.logo span{
+    font-size:12px;
+    letter-spacing: 5px;
+    font-weight:600;
+}
+
+/* .logo img{
+    height: 85px;
+    transition: 0.3s ease;
+    width: auto;
+    display: block;
+} */
+
+.logo-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding-top:20px;
+    padding-bottom:10px;
+}
+
+.logo img{
+    height: 55px;
+    width:auto;
+    display:block;
+}
+
+/* ========================
+NAVBAR
+======================== */
+
+/* nav{
+    display:flex;
+    justify-content:space-between; 
+    align-items:center;
+    padding:24px 0;
+    transition:.3s;
+} */
+
+/* nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:60px;
+    padding:10px 0 20px;
+} */
+
+nav{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:10px 0;
+}
+
+/* .nav-links{
+    display:flex;
+    gap:45px;
+    list-style:none;
+} */
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:35px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:white;
+    font-weight:500;
+    position:relative;
+    transition:.3s;
+}
+
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0%;
+    height:2px;
+    background:#dfa52a;
+    transition:.3s;
+} 
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-logo{
+    margin:0 20px;
+}
+
+.nav-logo img{
+    height:90px;
+    width:auto;
+    display:block;
+    transition:0.3s ease;
+}
+
+.menu{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+    color:white;
+}
+
+/* NAV RIGHT */
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+/* CART ICON */
+.cart-icon{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:var(--accent);
+    color:white;
+    padding:10px 14px;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.cart-icon:hover{
+    transform:translateY(-2px);
+    opacity:0.9;
+}
+
+/* ========================
+   NAV UTILITY ICONS
+   ======================== */
+
+/* .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;       /* This controls the distance between Search and Cart *
+    margin-left: 20px; /* This controls the distance from the Menu links *
+} */
+
+.nav-right{
+    position:absolute;
+    right:0;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    color: white;    /* default color: #c6a96b; Your Gold Color */
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: transform 0.3s ease, opacity 0.3s;
+}
+
+.icon-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+}
+
+/* Cart Badge Styling */
+.cart-count {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #111;  /* Dark background for the number */
+    color: white;
+    font-size: 9px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* SLIDER NAVIGATION ARROWS */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px; /* Distance from the edges */
+    z-index: 20;
+    pointer-events: none; /* Allows clicking items behind the container */
+}
+
+.nav-arrow {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    pointer-events: auto; /* Re-enables clicking for the buttons */
+    transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background: #c6a96b; /* Brand Gold */
+    border-color: #c6a96b;
+    transform: scale(1.1);
+}
+
+/* ===================================
+NAVBAR - THE FANCY STUFF & MEGA MENU
+====================================== */
+
+/* Align text and arrow */
+#colLink,
+#accLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1;
+}
+
+/* Default Arrow State (Pointing UP as requested) */
+.arrow-icon {
+    transition: transform 0.3s ease; /* Smooth animation */
+    transform: rotate(0deg); /* Default upward */
+}
+
+/* ACTIVE STATE (Pointing DOWN when clicked) */
+/* We target the arrow inside the link when the menu has the 'active' class */
+#colMenu.active ~ #colLink .arrow-icon,
+.dropdown:has(#colMenu.active) .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* ACTIVE STATE FOR BOTH ARROWS */
+#colMenu.active ~ #colLink .arrow-icon,
+.dropdown:has(#colMenu.active) .arrow-icon,
+#accMenu.active ~ #accLink .arrow-icon,
+.dropdown:has(#accMenu.active) .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* Ensure the arrow changes color when the header is scrolled */
+header.scrolled .arrow-icon {
+    color: #bb983a;
+}
+
+/* MEGA MENU BASE */
+.mega-menu {
+    position: fixed; /* Fixed relative to the screen, not the link */
+    top: 110px; /* Adjust based on your header height */
+    left: 0;
+    width: 100vw;
+    background: rgb(0, 0, 0);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    padding: 40px 0;
+    z-index: 1000;
+    
+    /* Hidden state */
+    /* display: none; */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+
+/* Transition States */
+    opacity: 0;
+    visibility: hidden; /* Menu exists but is non-interactive */
+    transform: translateY(-15px); /* Starts slightly higher */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Smooth "out" curve */
+    pointer-events: none; /* Prevents clicking menu items while hidden */
+}
+
+/* Active State */
+.mega-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slides down into place */
+    pointer-events: auto; /* Re-enables clicking */
+}
+
+/* Optional: Add a slight delay to the images for a "staggered" feel */
+.mega-menu.active .mega-item {
+    animation: fadeInItem 0.5s ease forwards;
+}
+
+@keyframes fadeInItem {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Show state */
+.mega-menu.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* THE GRID SYSTEM */
+.mega-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: 25px;
+}
+
+/* INDIVIDUAL ITEM */
+.mega-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: 0.3s;
+}
+
+.mega-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 12px; /* Rounded corners like your screenshot */
+}
+
+.mega-item span {
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff !important;
+}
+
+.mega-item:hover {
+    transform: scale(1.02);
+}
+
+/* Adjust top position when header shrinks on scroll */
+header.scrolled .mega-menu {
+    /* top: 65px; */
+    top: 110px;
+}
+
+/* Scroll text color */
+header.scrolled .logo,
+header.scrolled .nav-links a,
+header.scrolled .menu{
+color: #dfa52a;
+/*Default color:#c6a96b; New color 1: #bb983a*/
+}
+/* Ensure icons turn white/black if you want them to change on scroll */
+header.scrolled .icon-btn {
+    color: #dfa52a; /* Keeps them gold even on scroll */
+}
+/* header.scrolled .nav-logo img{
+    height: 65px;
+}*/
+
+/* ========================
+HERO
+======================== */
+
+.hero{
+    height:100vh;
+    /*background:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600') center/cover;*/
+    /* background:url('./soundsrelaxing89-ai-generated-8052806_1280.jpg') center/cover; */
+    background:url('./Pics_and_Wireframes/ChatGPT Image Jun 3, 2026, 09_06_15 PM.png') center/cover;
+    position:relative;
+    display:flex;
+    align-items:center;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(112, 69, 49, 0.185);
+}
+
+.hero-content{
+    flex: 1;  /* Takes up 50% of the width */
+    text-align: left; /* Forces text to the left */
+    color:white;
+    margin-left: 105px;
+    margin-bottom: 165px;
+    max-width: 800px;
+    /*position:relative;
+    z-index:2;
+    max-width:650px;*/
+}
+
+.hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:74px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:30px;
+    max-width: 500px;
+    color:#f0f0f0;
+}
+
+.btn-group{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 28px;
+    border:none;
+    cursor:pointer;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.gold{
+    background:#c6a96b;
+    color:white;
+}
+
+.light{
+    background:white;
+    color:#111;
+}
+
+.btn{
+    padding:15px 28px;
+    border:none;
+    cursor:pointer;
+    border-radius:50px;
+    font-weight:600;
+    transition:all .3s ease;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    background:#d8b97a;
+    box-shadow:0 8px 20px rgba(198,169,107,.35);
+}
+
+/* ========================
+TRUST BADGES
+======================== */
+
+.trust {
+    padding: 60px 0 20px; /* Reduced bottom padding to 20px */
+    background:#f8f5f0;
+    /* Create a grid that centers itself and its children */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /*grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
+    gap: 30px;
+    max-width: 900px; /* Adjust this number to make it narrower or wider */
+    margin: 0 auto;   /* Perfectly centers the narrowed group */
+    justify-items: center; /* Centers the items in the grid columns */
+}
+
+.trust-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the icon, h4, and p horizontally */
+    padding: 0 10px;
+    /*max-width: 250px;*/
+}
+
+.trust-icon {
+    width: 40px;
+    height: 40px;
+    color: #c6a96b;
+    stroke-width: 1.5;
+    margin-bottom: 10px;
+}
+
+.trust-item h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.trust-item p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
+/*
+.trust {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    padding: 60px 5%; border-bottom: 1px solid var(--border); text-align: center;
+    }
+    
+.trust-item h4 { font-size: 0.9rem; margin: 10px 0 5px; }
+.trust-item p { font-size: 0.8rem; color: var(--gray);  }
+
+/* New CSS to style the SVG Icons as Gold *
+.trust-icon {
+    width: 40px; /* Adjust size as needed *
+    height: 40px;
+    color: #c6a96b; /* Apply your premium gold color *
+    stroke-width: 1.5; /* Makes the lines elegant and thin *
+}
+
+.trust-item h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.trust-item p {
+    font-size: 14px;
+    color: #666;
+    max-width: 200px; /* Prevents long text lines *
+}
+
+/* ========================
+PRODUCTS
+======================== */
+.products{
+    padding: 90px 0;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.title h2{
+    font-family:'Playfair Display',serif;
+    font-size: 48px;
+    margin-bottom: 10px;
+    }
+
+.product-grid{
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+    /* align-items: start; */
+    /*grid-template-columns: 2fr 1fr 1fr;*/
+    gap: 35px;
+    margin-top: 10px; /* Small margin to keep it clean but close */
+    /* gap:40px 35px; /* Adjusting vertical gap between cards if needed */
+    
+}
+
+/* ==============================
+FEATURED PRODUCT
+/* =================================  */
+
+.featured-card{
+    grid-row:span 1;
+/* position: relative; */
+}
+
+.featured-card .card-body{
+    padding: 24px;
+} 
+
+.featured-card img{
+    height: 550px;
+    object-fit:cover;
+}
+
+.featured-card h2{
+    font-size:32px;
+    font-family:'Playfair Display',serif;
+}
+
+.featured-card .price{
+    font-size:22px;
+}
+
+.card{
+    /* background:rgb(238, 207, 187); */
+    /* background:#331e03; /* Cards color */
+    background:#140c01;
+    color: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,.06);
+    transition: .3s;
+    height: 500px;
+}
+
+/* .card:hover{
+    transform: translateY(-10px);
+} */
+
+.card img{
+    height: 350px;
+    object-fit: cover;
+}
+
+/* .card-body{
+    padding: 22px;
+} */
+.card-body{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+}
+.card-body .btn{
+    margin-top: auto;
+    align-self: center;
+}
+
+.card h3{
+    margin-bottom: 8px;
+}
+
+.price{
+    color:#c6a96b;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+/* ========================
+PRODUCTS TITLE SECTION
+======================== */
+.title {
+    display: flex;
+    justify-content: space-between; /* Pushes title left and button right */
+    align-items: flex-end;         /* Aligns button with the bottom of the text */
+    margin-bottom: 55px;
+    text-align: left;              /* Ensures text itself is left-aligned */
+}
+
+.title-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-bottom: 0; /* Removed margin to let flex handle spacing */
+}
+
+.title p {
+    margin-bottom: 0;
+    color: #c6a96b;
+    /* Default color: #666; */
+}
+
+/* Optional: Adjust button size to match your mockup */
+.title .btn-white {
+    padding: 12px 24px;
+    height: fit-content;
+}
+
+/* ==========================
+NEW LUXURY CARD DESIGN
+========================== */
+
+.brand-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+.brand-card{
+    position:relative;
+    height:255px;
+    overflow:hidden;
+    border-radius:20px;
+    text-decoration:none;
+}
+
+.brand-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.6s ease;
+}
+
+.brand-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        to top,
+        rgba(0,0,0,.65) 0%,
+        rgba(0,0,0,.15) 45%,
+        rgba(0,0,0,0) 100%
+    );
+
+    z-index:1;
+}
+
+.brand-card span{
+    position:absolute;
+    left:30px;
+    bottom:25px;
+
+    z-index:2;
+
+    color:white;
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    font-weight:600;
+    line-height:1.1;
+}
+
+.brand-card:hover img{
+    transform:scale(1.08);
+}
+
+/* ========================
+PROMO BOXES
+======================== */
+
+.promo-section{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(410px,1fr));
+    gap: 15px;
+    padding:80px 3%;
+}
+
+.promo-card{
+    position:relative;
+    height:500px;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+.promo-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.6s ease;
+}
+
+/* .promo-overlay{
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,0.35);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    padding:30px;
+} */
+
+.promo-overlay{
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    align-items:center;
+    text-align:center;
+
+    padding-bottom:60px;
+}
+
+.promo-overlay h3{
+    color:white;
+    font-family:'Playfair Display',serif;
+    font-size:48px;
+    line-height:1.1;
+
+    max-width:350px;
+    min-height: 90px; /* keeps all headings same height */
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:30px;
+}
+
+/* .promo-overlay h3{
+    color:white;
+    font-family:'Playfair Display',serif;
+    font-size:48px;
+    line-height:1.1;
+    max-width:350px;
+    margin-bottom:30px;
+} */
+
+.promo-btn{
+    background:#3d3d45;
+    color:white;
+    padding:16px 40px;
+    border-radius:999px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.promo-btn:hover{
+    background:#c6a96b;
+}
+
+.promo-card:hover img{
+    transform:scale(1.08);
+}
+
+/* ==========================
+SERVICE CARDS
+========================== */
+
+.service-section{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:50px;
+    max-width:1500px;
+    margin:100px auto;
+    padding:0 40px;
+}
+
+.service-card{
+    position:relative;
+}
+
+.service-card img{
+    width: 100%;
+    height: 650px;
+    object-fit:cover;
+    border-radius:28px;
+    display:block;
+}
+
+.service-content{
+    position:absolute;
+    left:40px;
+    bottom:-45px;
+    width: 520px;
+    background:#301a17;
+    color: white;
+    border-radius: 100px 0 50px 50px;
+    padding:45px 35px;
+}
+
+.service-content h3{
+    font-family:'Playfair Display', serif;
+    font-size:42px;
+    font-weight:500;
+    line-height:1.15;
+    margin-bottom:25px;
+    text-align: center;
+}
+
+.service-content p{
+    font-size:18px;
+    margin-bottom:25px;
+    text-align: center;
+}
+
+.service-btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    min-width:230px;
+    height:58px;
+    background:#b9782e;
+    color:white;
+
+    border-radius:999px;
+
+    font-size:18px;
+    font-weight:500;
+
+    transition:.3s;
+}
+
+.service-btn:hover{
+    background:#3a1a1a;
+}
+
+/* ========================
+ABOUT
+======================== *
+.about{
+padding:100px 0;
+background:white;
+}
+
+.about-wrap{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.about h2{
+font-family:'Playfair Display',serif;
+font-size:46px;
+margin-bottom:18px;
+}*/
+
+/* =========================
+CRAFTSMANSHIP SECTION
+========================= */
+
+.craftsmanship-gallery{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+}
+
+:root{
+    --collage-width:1000px;
+}
+.craft-collage{
+    width: 100%;
+    max-width:var(--collage-width) /* Change this whenever you want */;
+    height:auto;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.craftsmanship{
+    position:relative;
+    min-height:950px;
+
+/* Background image */
+background:
+    linear-gradient(
+    90deg,
+    rgba(248,245,240,0.96) 0%,
+    rgba(248,245,240,0.92) 40%,
+    rgba(0,0,0,0.15) 100%),
+    url("./Pics_and_Wireframes/3fc736f3-b147-4a79-bf2c-0508c1447394.jpg");
+    background-size: cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.craft-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    width:100%;
+}
+
+/* LEFT SIDE */
+.craft-text{
+    max-width:800px;
+    padding:80px 20px;
+    z-index:2;
+}
+
+.mini-title{
+    color:#c6a96b;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:2px;
+    display:block;
+    margin-bottom:18px;
+}
+
+.craft-text h2{
+    font-family:'Playfair Display',serif;
+    font-size:58px;
+    line-height:1.1;
+    margin-bottom:24px;
+    color:#1f1f1f;
+}
+
+.craft-text p{
+    font-size:18px;
+    color:#444;
+    margin-bottom:40px;
+    line-height:1.8;
+}
+
+/* ICON ROW */
+.craft-icons{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap: 10px;
+    margin-bottom:40px;
+}
+
+.icon-box{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+}
+
+.icon-box span{
+    font-size:26px;
+    color:#c6a96b;
+}
+
+.icon-box p{
+    margin:0;
+    font-size:15px;
+    font-weight:600;
+    line-height:1.4;
+}
+
+/* BUTTON */
+.craft-btn{
+    display:inline-block;
+    background:#c6a96b;
+    color:white;
+    padding:16px 30px;
+    border-radius:6px;
+    font-weight:600;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+.craft-btn:hover{
+    transform:translateY(-3px);
+    background:#b89555;
+}
+
+/* Container for the image - helps with positioning */
+.craft-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centers image in its half of the screen */
+    align-items: center;
+}
+
+/* The actual image resize logic */
+.craft-image-wrapper img {
+    /* CHANGE THESE VALUES TO RESIZE */
+    width: 100%;
+    max-width: 500px;  /* This controls the width */
+    height: 400px;     /* This controls the height */
+    object-fit: cover; /* Crucial: Keeps the image from stretching */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 20px; /* Margin/Padding adjustment to keep it away from the edges */
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+.craftsmanship{
+    background-position:center;
+    padding:80px 0;
+}
+
+.craft-grid{
+    grid-template-columns:1fr;
+}
+
+.craft-text h2{
+    font-size:42px;
+}
+
+.craft-icons{
+    grid-template-columns:1fr;
+}
+}
+
+/* Ensure background image disappears or changes on mobile for readability */
+@media (max-width: 900px) {
+    .craftsmanship {
+        background: #fff; /* Solid white background on mobile */
+        padding: 60px 0;
+        text-align: center;
+    }
+    .craft-content {
+        margin: 0 auto;
+    }
+    .craft-features {
+        justify-content: center;
+    }
+}
+
+/* ========================
+REVIEWS SECTION
+======================== */
+.reviews{
+    padding: 90px 0 55px 0; /* Increases the bottom padding value (the 3rd number) to push the CTA section down */
+    text-align:center;
+    background-color: #000;
+    color: white;
+}
+
+.quote{
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+    max-width:700px;
+    margin:auto;
+    margin-top:35px;
+    margin-bottom:0; /* Adjust this value (e.g., 40px, 50px) to make the space wider or tighter. Keep your existing font or styling rules here */
+    color: white;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom:35px;
+    color: white;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.review-card {
+    background: #f8f5f0; /* Soft off-white to match your theme */
+    padding: 40px;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+
+/* .review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05); 
+} */
+
+.stars {
+    color: #ff7b00; /* Your signature gold color #c6976b */
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.review-card p {
+    font-style: italic;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 15px; /* Increased this to push the name/status further down */
+    position: relative;
+}
+
+.reviewer-info .name {
+    display: block;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 16px;
+}
+
+.reviewer-info .status {
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Mobile responsive centering */
+@media (max-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================
+CTA
+======================== */
+.cta{
+padding:90px 0;
+background:#ffffff;
+color:rgb(0, 0, 0);
+text-align:center;
+}
+
+.cta h2{
+font-family:'Playfair Display',serif;
+font-size:48px;
+margin-bottom:20px;
+}
+
+/* ========================
+FOOTER
+======================== */
+/*footer{
+padding:45px 0;
+text-align:center;
+background:#000;
+color:#bbb;
+}*/
+
+footer {
+    background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), 
+                url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200');
+    background-size: cover;
+    background-position: bottom;
+    color: #eee;
+    padding: 80px 0 0 0; /* Extra padding top for luxury feel */
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: center;
+    gap: 95px; /* controls spacing between columns */
+    padding-bottom: 60px;
+}
+
+.footer-col {
+    flex: 0 0 200px;
+}
+
+.footer-col h4 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    color: #c6a96b; /* Gold accent for headers */
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #bbb;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: white;
+}
+
+.footer-col p {
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.footer-col.brand .logo{
+    align-items: flex-start;
+    text-align: left;
+}
+.footer-logo img{
+    width: 180px;     /* adjust size here */
+    height: auto;
+    display: block;
+    margin-top: -20px;
+}
+
+.footer-col:nth-child(3){
+    margin-left:left -60px;
+}
+
+/* Bottom Copyright Bar */
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 25px 0;
+    font-size: 13px;
+    background: rgba(0,0,0,0.3);
+    color: #c6a96b;
+}
+
+.flex-bottom { /* This is where the copyright located*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.legal-links a {
+    margin: 0 10px;
+    color: #888;
+}
+
+/* Social Icons Placeholder styling */
+.social-icons a {
+    font-size: 20px;
+    margin-right: 15px;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    opacity: 1;
+    color: #c6a96b;
+}
+
+/* ========================
+SCROLL REVEAL
+======================== */
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ========================
+MOBILE
+======================== */
+@media(max-width:900px){
+
+.nav-links{
+position:absolute;
+top:80px;
+right:20px;
+background:white;
+padding:20px;
+border-radius:12px;
+flex-direction:column;
+display:none;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+.nav-links a{
+color:#111;
+}
+
+.nav-links.show{
+display:flex;
+}
+
+.menu{
+display:block;
+}
+
+.about-wrap{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:52px;
+}
+}
+
+/* Mobile Fix: Stack them back up on phones */
+@media (max-width: 900px) {
+    .hero-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-content p {
+        margin: 0 auto 30px auto;
+    }
+    .hero-image img {
+        width: 100%;
+    }
+}
+
+.title h2,
+.about h2,
+.cta h2{
+font-size:34px;
+flex-direction: column;
+align-items: flex-start;
+gap: 20px;
+}
+
+.hero p{
+font-size:17px;
+}
+
+/* Mobile: Stack them when the screen gets too small */
+@media (max-width: 768px) {
+    .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 20px;
+    }
+}
+
+/* Mobile responsive adjustment */
+@media(max-width: 768px) {
+    .flex-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 900px){
+
+    .service-section{
+        grid-template-columns:1fr;
+        gap:120px;
+    }
+
+    .service-card img{
+        height:500px;
+    }
+
+    .service-content{
+        width:85%;
+        left:50%;
+        transform:translateX(-50%);
+    }
+
+    .service-content h3{
+        font-size:32px;
+    }
+}
+
+/* ========================
+NOT IN USE, BUT TOO PRECIOUS TO DELETE 
+======================== 
+
+.trust{
+padding:70px 0;
+background:white;
+}
+
+.trust-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+text-align:center;
+}
+
+.trust-box{
+padding:25px;
+border:1px solid #eee;
+border-radius:14px;
+}
+
+/* ========================
+   TRUST BADGES - UPDATED
+   ======================== *
+.trust {
+    padding: 70px 0;
+    background: white;
+}
+
+.trust-grid {
+    display: grid;
+    /* Clean grid layout *
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align:center;
+}
+
+.trust-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally within the cell *
+    gap: 15px; /* Adds clean spacing between icon, title, and text *
+}*/
+
