@@ -229,6 +229,13 @@ nav{
    NAV UTILITY ICONS
    ======================== */
 
+/* .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;       /* This controls the distance between Search and Cart *
+    margin-left: 20px; /* This controls the distance from the Menu links *
+} */
+
 .nav-right{
     position:absolute;
     right:0;
@@ -1951,50 +1958,4 @@ font-size:17px;
         font-size:32px;
     }
 }
-
-/* ========================
-NOT IN USE, BUT TOO PRECIOUS TO DELETE 
-======================== 
-
-.trust{
-padding:70px 0;
-background:white;
-}
-
-.trust-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-text-align:center;
-}
-
-.trust-box{
-padding:25px;
-border:1px solid #eee;
-border-radius:14px;
-}
-
-/* ========================
-   TRUST BADGES - UPDATED
-   ======================== *
-.trust {
-    padding: 70px 0;
-    background: white;
-}
-
-.trust-grid {
-    display: grid;
-    /* Clean grid layout *
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    text-align:center;
-}
-
-.trust-item {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers items horizontally within the cell *
-    gap: 15px; /* Adds clean spacing between icon, title, and text *
-}*/
 
