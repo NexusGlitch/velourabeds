@@ -427,6 +427,7 @@ PRODUCTION BOX 2
 </div>
 
 <!-- <div class="brand-grid"> -->
+    
 <div class="brand-slider-wrapper">
         <button class="brand-arrow prev">❮</button>
     <div class="brand-slider">
@@ -615,6 +616,7 @@ ABOUT
     <div class="container craft-grid">
 
         <!-- LEFT CONTENT -->
+        
         <div class="craft-text">
             <span class="mini-title">OUR PROMISE</span>
             <h2>Craftsmanship You Can Feel</h2>
@@ -626,6 +628,7 @@ ABOUT
             </p>
 
                 <!-- ICON ROW -->
+            
                 <div class="craft-icons">
                         <div class="icon-box">
                         <span>✦</span>
@@ -660,6 +663,7 @@ ABOUT
 <!-- ========================
 TESTIMONIAL/REVIEWS
 ======================== -->
+    
 <section class="reviews reveal" id="reviews">
 
 <div class="container">
@@ -746,6 +750,7 @@ FOOTER
         </div>
 
                 <!-- Shop Column -->
+        
         <div class="footer-col">
             <h4>OUR COMPANY</h4>
             <ul>
@@ -758,18 +763,18 @@ FOOTER
         </div>
 
         <!-- Collection Column -->
+        
         <div class="footer-col">
                 <h4>BED COLLECTIONS</h4>
                 <ul>
-                    <li><a href="#">Majestic Royal</a></li> <!-- This is a majestic royal bedding design (fancy expensive beds feels like royals)-->
-                    <li><a href="#">Blackwood</a></li> <!-- This is the store's signature bedding design -->
-                    <li><a href="#">Cloud Hybrid</a></li> <!-- This is a futuristic bedding design -->
-                    <li><a href="#">Velvet Silk</a></li>
+                    <li><a href="#">Majestic Royal</a></li> <!-- Majestic royal bedding design (fancy expensive beds feels like royals)-->
+                    <li><a href="#">Blackwood</a></li> <!-- Gothic Victorian style bedding design collection -->
+                    <li><a href="#">Cloud Hybrid</a></li> <!-- A futuristic bedding design -->
+                    <li><a href="#">Velvet Silk</a></li> <!-- Luxurious silk & satin bedding design -->
                     <li><a href="#">Zen Haven</a></li> <!-- This is a Asian fusion bedding design -->
                     <li><a href="#">Antique Nights</a></li> <!-- This is a ancient & antique bedding style design -->
-                    <li><a href="#">Barrock Designs</a></li>
-                    <li><a href="#">DreamCatcher</a></li>
-                    
+                    <li><a href="#">Barrock Designs</a></li> <!-- Minimalistic and modern bedding design for those who just want less luxury -->
+                    <li><a href="#">DreamCatcher</a></li> <!-- Relaxing, tranquility bedding design for resilience and retreat -->
                 </ul>
             </div>
 
@@ -778,7 +783,7 @@ FOOTER
                 <h4>ACCESSORIES</h4>
                 <ul>
                     <li><a href="#">Duvets & Duvet Sets</a></li>
-                    <li><a href="#">Duvet covers</a></li>
+                    <li><a href="#">Throws & Blankets</a></li>
                     <li><a href="#">Pillows</a></li>
                     <li><a href="#">Mattresses</a></li>
                     <li><a href="#">Mattress Protectors</a></li>
@@ -802,6 +807,7 @@ FOOTER
         </div>
 
         <!-- Support Column (Contact Info) -->
+        
         <div class="footer-col">
             <h4>SUPPORT</h4>
             <p>hello@velourabeds.com</p>
@@ -812,10 +818,10 @@ FOOTER
     </div>
 
     <!-- Bottom Bar -->
+    
     <div class="footer-bottom">
         <div class="container flex-bottom">
             <p>© 2026 Veloura Beds. All Rights Reserved.</p>
-                <!--<a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>-->
             </div>
         </div>
     </div>
@@ -834,6 +840,7 @@ FOOTER
 <!-- ========================
 JAVASCRIPT
 ======================== -->
+    
 <script>
 
 /* MOBILE MENU */
@@ -1029,7 +1036,6 @@ const products = [
 
 ];
 
-
 // Open / close search bar
 
 searchBtn.addEventListener("click", (e) => {
@@ -1100,7 +1106,6 @@ searchInput.addEventListener("input", () => {
 
     });
 
-
 // Clear button (X)
 
 clearBtn.addEventListener("click", () => {
@@ -1112,7 +1117,6 @@ clearBtn.addEventListener("click", () => {
     searchInput.focus();
 
 });
-
 
 // Close search when clicking outside
 
@@ -1129,103 +1133,6 @@ document.addEventListener("click", (e) => {
     }
 
 });
-
-/* SEARCH BAR SECTION
-
-const searchBtn = document.querySelector(".search-trigger");
-const headerSearch = document.querySelector(".header-search");
-
-searchBtn.addEventListener("click", (e) => {
-
-    e.stopPropagation();
-
-    headerSearch.classList.toggle("active");
-
-    if(headerSearch.classList.contains("active")){
-        searchInput.focus();
-    }
-
-});
-
-document.addEventListener("click", (e) => {
-
-    if(
-        !headerSearch.contains(e.target) &&
-        !searchBtn.contains(e.target)
-    )
-    
-    {
-
-        headerSearch.classList.remove("active");
-        resultsBox.style.display = "none";
-
-    }
-
-});
-
-clearBtn.addEventListener("click", () => {
-
-    searchInput.value = "";
-    clearBtn.style.display = "none";
-    resultsBox.style.display = "none";
-    searchInput.focus();
-
-});
-
-/* CREATE PRODUCTS *
-
-const products = [
-
-"Majestic Royal",
-"Blackwood",
-"Cloud Hybrid",
-"DreamCatcher",
-"Zen Haven",
-"Antique Nights",
-"Velvet Silk",
-"Barrock Designs",
-"Mattresses",
-"Pillows",
-"Duvets"
-
-];
-
-const resultsBox =
-document.querySelector(".search-results");
-
-searchInput.addEventListener("input", () => {
-
-    let value =
-    searchInput.value.toLowerCase();
-
-    resultsBox.innerHTML = "";
-
-    if(value === ""){
-        resultsBox.style.display = "none";
-        return;
-    }
-
-    let matches = products.filter(product =>
-        product.toLowerCase().includes(value)
-    );
-
-    matches.forEach(product => {
-
-        resultsBox.innerHTML +=
-        `
-        <div class="search-item">
-            ${product}
-        </div>
-        `;
-
-    });
-
-    resultsBox.style.display =
-        matches.length ? "block" : "none";
-
-});
-*/
-
 
 /* BACK TO TOP BUTTON */
 
