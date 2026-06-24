@@ -778,25 +778,20 @@ FEATURED PRODUCT
 /* ========================
 PRODUCTS TITLE SECTION
 ======================== */
-/*.title {
+.title {
     display: flex;
-    justify-content: center; /* space-between; = /* Pushes title left and button right *
-    align-items: center; /* flex-end; = /* Aligns button with the bottom of the text *
+    justify-content: center; /* space-between; = /* Pushes title left and button right */
+    align-items: center; /* flex-end; = /* Aligns button with the bottom of the text */
     margin-bottom: 55px;
-    text-align: center; /* left; = /* Ensures text itself is left-aligned *
+    text-align: center; /* left; = /* Ensures text itself is left-aligned */
     flex-direction: column;
-}*/
+}
 
 .title-text {
     display: flex;
-    justify-content:center; /* Pushes title left and button right */
-    align-items:center;         /* Aligns button with the bottom of the text */
-    margin-bottom:55px;
-    text-align:center;             /* Ensures text itself is left-aligned */
-    flex-direction:column;
+    flex-direction: column;
     gap: 10px;
 }
-
 .title h2 {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
