@@ -1264,101 +1264,208 @@ COMPANY STORY
     margin-bottom:35px;
 }
 
-/* ========================
-PRODUCTION COMMMERCIAL
-===========================*/
+/* ==================================
+PRODUCTION SALE COMMERCIAL COLLAGE
+==================================== */
 
-.accessory-banner{
-    margin:120px auto;
-    max-width:1900px;
+.accessory-banner{ /* The banner that's wrapping the 3 boxes */
+    padding: 45px 0 60px;
 }
 
-.banner-image{
-    position:relative;
-    overflow:hidden;
-    border-radius:30px;
+.sale-grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 335px 335px;
+    gap: 20px;
+}
+
+.banner-large{
+    grid-row: 1 / span 2;
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+}
+
+.banner-small{
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px; 
+}
+.offer-badge{
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background:#b9432e;
+    color:#fff;
+    padding:8px 16px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    z-index:5;
+    box-shadow: 0 8px 20px rgba(0,0,0,.25);
 }
 
 .banner-image img{
-    width:100%;
-    height:750px;
-    object-fit:cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
 }
 
-.banner-image::before{
-    content:"";
+/* .banner-image:hover img{
+    transform:scale(1.05);
+} */
+
+.banner-offer{ /* Sale offer banner inside the large image card */
     position:absolute;
-    inset:0;
-    background:
-    linear-gradient(
-        to bottom,
-        rgba(0,0,0,.05),
-        rgba(0,0,0,.45)
+    left:70px;
+    top:50%;
+    transform: translateY(-50%);
+    background:rgba(51, 30, 7, 0.212);
+    padding:55px;
+    width:520px;
+    backdrop-filter:blur(12px);
+    border-radius: 25px;
+    color: white;
+}
+.offer-tag{
+    color: #ffef08;/* Default color:#1b0303; */
+    letter-spacing:5px;
+    font-weight:600;
+}
+.banner-offer h3{
+    font-size:58px;
+    margin:18px 0;
+    font-family:'Playfair Display',serif;
+}
+.offer-percent{
+    font-size:110px;
+    font-weight:700;
+    line-height:1;
+    margin-bottom:25px;
+}
+.banner-offer p{
+    font-size:22px;
+    margin-bottom:35px;
+}
+.banner-btn{
+    display:inline-block;
+    padding:18px 40px;
+    background:#b9782e;
+    color:white;
+    border-radius:8px;
+    font-weight:600;
+}
+.banner-btn:hover{
+    background:rgba(41, 30, 30, 0.15);
+    transition: 0.5s;
+}
+
+/* ==========================================
+   MINI GLASS OFFER CARD
+========================================== */
+
+.mini-banner-offer{
+    position:absolute;
+    top: 18px;
+    left: 18px;
+    width: 220px;
+    padding: 20px;
+    border-radius:22px;
+    background:rgba(120,95,75,.30);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.15);
+    color:#fff;
+    z-index:5;
+}
+
+/* ========================================== */
+
+.mini-tag{
+    display:block;
+    color:#FFE65A;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:14px;
+}
+
+/* ========================================== */
+
+.mini-banner-offer h4{
+    font-family:'Playfair Display', serif;
+    font-size:28px;
+    line-height:1.2;
+    margin-bottom:8px;
+}
+
+/* ========================================== */
+
+.mini-percent{
+    font-family:'Playfair Display', serif;
+    font-size:34px;
+    font-weight:700;
+    line-height:1.1;
+    margin-bottom:18px;
+}
+
+/* ========================================== */
+
+.mini-btn{
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:50px;
+    background:#C8832E;
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+.mini-btn:hover{
+    background:#D99A45;
+}
+
+/* ==========================================
+   KEEP THE BOTTOM CONTENT
+========================================== */
+
+.small-banner-content{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:28px;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.10),
+        transparent
     );
 }
 
-.banner-offer{
-    position:absolute;
-    top:50%;
-    left:10%;
-    transform:translateY(-50%);
-    background:rgba(255,255,255,.82);
-    backdrop-filter:blur(12px);
-    padding:50px;
-    width:520px;
-}
-
-.offer-tag{
-    color:#c64a4a;
-    font-size:18px;
-    letter-spacing:4px;
-    font-weight:700;
-}
-
-.banner-offer h3{
-    font-size:38px;
-    margin:20px 0;
+.small-banner-content span{
+    color:#D9B06B;
+    font-size:13px;
     letter-spacing:3px;
+    text-transform:uppercase;
 }
 
-.offer-percent{
-    font-size:120px;
-    font-weight:800;
-    line-height:1;
+.small-banner-content h3{
+    color:#fff;
+    font-size:34px;
+    font-family:'Playfair Display', serif;
+    margin:10px 0;
 }
 
-.banner-offer p{
-    font-size:22px;
-    margin-top:20px;
+.small-banner-content a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
 }
-
-.banner-btn{
-    position:absolute;
-    left:50%;
-    bottom:40px;
-    transform:translateX(-50%);
-    background: #b9782e;
-    /* border:1px solid white; */
-    color:white;
-    padding:20px 60px;
-    border-radius:8px;
-    font-weight:700;
-    letter-spacing:2px;
-    transition:.3s;
-}
-
-.banner-btn:hover{
-    /* background:#c6a96b; */
-    /* background: #b9782e; */
-    background: #412610;
-    /* border-color:#eeaf28; */
-    transition: 0.8s;
-}
-
-#sale{
-    scroll-margin-top: 140px;
-}
-
 /* =========================
 CRAFTSMANSHIP SECTION
 ========================= */
