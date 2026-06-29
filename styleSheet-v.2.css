@@ -533,9 +533,8 @@ header.scrolled .icon-btn {
     color: #dfa52a; /* Keeps them gold even on scroll */
 }
 
-#collections{
-    scroll-margin-top:140px;
-}
+section[id]{ scroll-margin-top: 155px;}
+
 /* header.scrolled .nav-logo img{
     height: 65px;
 }*/
